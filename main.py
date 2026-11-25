@@ -12,6 +12,8 @@ LINE = "My agent has read the entire internet and still asks me if I'm sure I wa
 
 
 def main() -> None:
+    if not 1 <= len(LINE) <= 280:
+        raise ValueError(f"entry must be 1-280 characters, got {len(LINE)}")
     target = os.environ.get("ENTRY_OUTPUT_PATH", "/output/entry.txt")
     path = Path(target)
     try:
